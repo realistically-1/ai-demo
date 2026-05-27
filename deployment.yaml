@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-demo
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: ai-demo
+  template:
+    metadata:
+      labels:
+        app: ai-demo
+    spec:
+      containers:
+      - name: ai-demo
+        image: realistica11y/ai-demo:v1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
